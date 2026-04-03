@@ -1,10 +1,10 @@
-## Задание: класс ArrayListTasks
+## Задание: класс `ArrayListTasks`
 
-Создать класс ArrayListTasks со следующими методами:
+Создать класс `ArrayListTasks` со следующими методами:
 
 ---
 
-### 1. removeEvenNumbers(List<Integer> list)
+### 1. `removeEvenNumbers(List<Integer> list)`
 
 
 - **Что делает:**
@@ -15,7 +15,7 @@
 
 ---
 
-### 2. reverseList(List<String> list)
+### 2. `reverseList(List<String> list)`
 
 - **Что делает:** 
   Переворачивает список в обратном порядке.
@@ -25,17 +25,17 @@
 
 ---
 
-### 3. findCommonElements(List<Integer> list1, List<Integer> list2)
+### 3. `findCommonElements(List<Integer> list1, List<Integer> list2)`
 
 - **Что делает:** 
   Находит элементы, которые присутствуют в обоих списках.
 
 - **Возвращает:** 
-  Новый ArrayList<Integer> с общими элементами.
+  Новый `ArrayList<Integer>` с общими элементами.
 
 ---
 
-### 4. toUpperCaseList(List<String> list)
+### 4. `toUpperCaseList(List<String> list)`
 
 - **Что делает:** 
   Преобразует все строки списка в верхний регистр.
