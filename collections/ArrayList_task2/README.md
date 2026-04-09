@@ -43,17 +43,28 @@
 
 ### 3. Реализовать методы в `StudentManager`
 
-`void addStudent(String name, double grade)`  Добавляет нового студента. Если оценка вне диапазона 0–5 — выбросить `IllegalArgumentException`|
+`void addStudent(String name, double grade)`  Добавляет нового студента. Если оценка вне диапазона 0–5 — выбросить `IllegalArgumentException`
+
 `boolean removeStudent(int id)`  Удаляет студента по id. Возвращает `true`, если удаление успешно 
+
 `Student findById(int id)`  Возвращает студента по id или `null`, если не найден 
+
 `List<Student> findByName(String name)`  Возвращает список студентов с указанным именем (без учета регистра) 
+
 `List<Student> getTopStudents(int count)`  Возвращает список из `count` студентов с наивысшими оценками 
+
 `double getAverageGrade()`  Возвращает среднюю оценку всех студентов 
+
 `void sortByGrade()`  Сортирует студентов по оценке (по убыванию) 
+
 `void sortByName()`  Сортирует студентов по имени (в алфавитном порядке) 
+
 `List<Student> getStudentsByGradeRange(double min, double max)` Возвращает студентов с оценками в диапазоне `[min, max]` 
+
 `List<Student> getAllStudents()` Возвращает копию списка студентов 
+
 `void clear()` Удаляет всех студентов 
+
 `int size()`  Возвращает количество студентов 
 
 ---
