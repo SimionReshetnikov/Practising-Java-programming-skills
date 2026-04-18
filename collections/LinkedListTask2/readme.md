@@ -13,11 +13,19 @@
 
 ### Требования к классу TodoList
 `addTask(title, priority)` Добавляет задачу с автоматической сортировкой 
+
 `addToEnd(title, priority)` Добавляет задачу в конец (без сортировки) 
+
 `addToStart(title, priority)` Добавляет задачу в начало (без сортировки) 
+
 `removeTask(id)` Удаляет задачу по ID 
+
 `completeFirst()` Удаляет и возвращает первую задачу 
+
 `getTasksByPriority(priority)` Возвращает список задач с указанным приоритетом 
+
 `moveToEnd(id)` Перемещает задачу в конец списка 
+
 `getAllTasksString()` Возвращает строковое представление списка 
+
 `size()` / `isEmpty()` / `clear()`  Базовые операции 
