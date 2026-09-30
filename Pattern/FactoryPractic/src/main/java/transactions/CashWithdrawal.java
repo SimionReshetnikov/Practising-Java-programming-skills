@@ -3,7 +3,6 @@ package transactions;
 import accounts.BankAccount;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class CashWithdrawal implements BankOperation {
 
@@ -22,10 +21,16 @@ public class CashWithdrawal implements BankOperation {
 
     @Override
     public void validate() {
-        double amountMoney = bankAccount.conversionToDouble();
+        if (bankAccount == null) {
+            throw new IllegalArgumentException("Переданы некорректные данные по банковскому аккаунту.");
+        }
 
-        if (amountMoney < withdrawalAmount.doubleValue() || withdrawalAmount.doubleValue() < 0) {
-            throw new IllegalArgumentException("Сумма снятия ДС некорректна.");
+        if (withdrawalAmount.signum() <= 0) {
+            throw new IllegalArgumentException("Сумма снятия должна быть положительной.");
+        }
+
+        if (bankAccount.getAmountMoney().compareTo(withdrawalAmount) < 0) {
+            throw new IllegalArgumentException("Недостаточно средств на счете.");
         }
 
         System.out.println("Проверка пройдена, сумма для снятия " + withdrawalAmount + " корректна.");

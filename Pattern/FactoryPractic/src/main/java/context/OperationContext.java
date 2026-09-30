@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 
 public class OperationContext {
 
-    private BankAccount bankAccount;
-    private BigDecimal amount;
+    private final BankAccount bankAccount;
+    private final BigDecimal amount;
 
     public OperationContext(BankAccount bankAccount, BigDecimal amount) {
         this.bankAccount = bankAccount;
