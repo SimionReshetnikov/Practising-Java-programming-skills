@@ -24,7 +24,8 @@ public class ListPostsServlet extends HttpServlet {
         out.println("<h1>Все посты.</h1>");
         List<Post> posts = PostStorage.getInstance().getAll();
 
-        out.println("<p><a href='" + request.getContextPath() + "/posts/add'>Добавить пост.</a></p>");
+        out.println("<p><a href='" + request.getContextPath() + "/posts/add'>Добавить пост</a></p>");
+        out.println("<p><a href='" + request.getContextPath() + "/posts/view'>Найти пост по id</a></p>");
 
         if (posts.isEmpty()) {
             out.println("<p>Постов пока нет</p>");

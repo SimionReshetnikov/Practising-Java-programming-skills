@@ -24,7 +24,7 @@ public class AddPostServlet extends HttpServlet {
         out.println("Текст: <textarea name='content' rows='5' cols='40' " +
                 "placeholder='Введите ваш текст здесь...'></textarea><br><br>");
         out.println("<button type='submit'>Сохранить</button>");
-        out.println("<p><a href=' "+ request.getContextPath() + "/posts'>К списку.</a></p>");
+        out.println("<p><a href=' "+ request.getContextPath() + "/posts'>К списку</a></p>");
     }
 
     @Override
