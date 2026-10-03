@@ -24,7 +24,7 @@ public class ListPostsServlet extends HttpServlet {
         out.println("<h1>Все посты.</h1>");
         List<Post> posts = PostStorage.getInstance().getAll();
 
-        if (posts.size() == 0) {
+        if (posts.isEmpty()) {
             out.println("<p>Постов пока нет</p>");
             return;
         }
