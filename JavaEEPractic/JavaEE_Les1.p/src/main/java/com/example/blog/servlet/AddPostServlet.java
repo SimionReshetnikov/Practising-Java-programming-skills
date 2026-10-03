@@ -19,11 +19,12 @@ public class AddPostServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("<form action='/posts' method='POST'");
+        out.println("<form action='add' method='POST'>");
         out.println("Заголовок: <input type='text' name='title' required><br><br>");
         out.println("Текст: <textarea name='content' rows='5' cols='40' " +
                 "placeholder='Введите ваш текст здесь...'></textarea><br><br>");
         out.println("<button type='submit'>Сохранить</button>");
+        out.println("<p><a href=' "+ request.getContextPath() + "/posts'>К списку.</a></p>");
     }
 
     @Override
@@ -37,13 +38,14 @@ public class AddPostServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
+
         if (title == null || title.isBlank() || content == null || content.isBlank()) {
             out.println("<h1>Некорректный заголовок или описание поста. Скорректируйте данные.</h1>");
-            out.println("<p><a href='index.html'>Назад к форме</a></p>");
+            out.println("<p><a href='add'>Назад к форме</a></p>");
             return;
         }
 
         PostStorage.getInstance().createPost(title, content);
-        response.sendRedirect("/post");
+        response.sendRedirect(request.getContextPath() + "/posts");
     }
 }

@@ -24,13 +24,14 @@ public class ListPostsServlet extends HttpServlet {
         out.println("<h1>Все посты.</h1>");
         List<Post> posts = PostStorage.getInstance().getAll();
 
+        out.println("<p><a href='" + request.getContextPath() + "/posts/add'>Добавить пост.</a></p>");
+
         if (posts.isEmpty()) {
             out.println("<p>Постов пока нет</p>");
-            return;
         }
 
         for (Post post : posts) {
-            out.println("<p>" + post.toString() + "<!p>");
+            out.println("<p>" + post.toString() + "</p>");
         }
     }
 }
