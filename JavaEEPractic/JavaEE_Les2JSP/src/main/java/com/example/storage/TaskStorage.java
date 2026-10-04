@@ -5,11 +5,13 @@ import com.example.model.Task;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class TaskStorage {
 
     private static final TaskStorage INSTANCE = new TaskStorage();
     private final List<Task> listTasks = new ArrayList<>();
+    private static AtomicInteger count = new AtomicInteger(0);
 
     private TaskStorage() {}
 
@@ -17,8 +19,8 @@ public class TaskStorage {
         return INSTANCE;
     }
 
-    public synchronized void createTask(int id, String title) {
-        Task task = new Task(id, title);
+    public synchronized void createTask(String title) {
+        Task task = new Task(count.incrementAndGet(), title);
         listTasks.add(task);
     }
 
@@ -40,6 +42,7 @@ public class TaskStorage {
         }
 
         listTasks.remove(task);
+        count.decrementAndGet();
         return true;
     }
 }
