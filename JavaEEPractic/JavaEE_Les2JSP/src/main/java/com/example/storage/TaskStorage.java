@@ -11,17 +11,23 @@ public class TaskStorage {
 
     private static final TaskStorage INSTANCE = new TaskStorage();
     private final List<Task> listTasks = new ArrayList<>();
-    private static AtomicInteger count = new AtomicInteger(0);
+    private static AtomicInteger count = new AtomicInteger(1);
 
     private TaskStorage() {}
 
-    public static TaskStorage getInstance() {
+    public static synchronized TaskStorage getInstance() {
         return INSTANCE;
     }
 
-    public synchronized void createTask(String title) {
+    synchronized void clear() {
+        listTasks.clear();
+        count.set(1);
+    }
+
+    public synchronized Optional<Task> createTask(String title) {
         Task task = new Task(count.incrementAndGet(), title);
         listTasks.add(task);
+        return Optional.of(task);
     }
 
     public synchronized List<Task> getAll() {

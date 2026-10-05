@@ -12,10 +12,12 @@ import java.io.IOException;
 @WebServlet("/tasks/add")
 public class AddTaskServlet extends HttpServlet {
 
+    private static final String ADD_JSP = "/WEB-INF/views/add.jsp";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/add.jsp").forward(request, response);
+        request.getRequestDispatcher(ADD_JSP).forward(request, response);
     }
 
     @Override
@@ -27,7 +29,7 @@ public class AddTaskServlet extends HttpServlet {
 
         if (title == null || title.isBlank()) {
             request.setAttribute("error", "Название задачи не может быть пустым");
-            request.getRequestDispatcher("/WEB-INF/views/add.jsp").forward(request, response);
+            request.getRequestDispatcher(ADD_JSP).forward(request, response);
             return;
         }
 
